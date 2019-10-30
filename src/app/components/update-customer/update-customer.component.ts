@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerApiService } from '../../services/customer-api.service';
 
 @Component({
   selector: 'app-update-customer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateCustomerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _service:CustomerApiService) { }
 
   ngOnInit() {
   }

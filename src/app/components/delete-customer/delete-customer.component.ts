@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerApiService } from '../../services/customer-api.service';
+
 
 @Component({
   selector: 'app-delete-customer',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteCustomerComponent implements OnInit {
 
-  constructor() { }
+  private deleteResponse:any;
+
+  constructor(private _service:CustomerApiService) { }
 
   ngOnInit() {
+  }
+
+  public deleteCustomer(id:number){
+    this._service.delete(id).subscribe(res=>{
+        this.deleteResponse=res;
+    });
   }
 
 }

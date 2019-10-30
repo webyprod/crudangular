@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerApiService } from '../../services/customer-api.service';
+
 
 @Component({
   selector: 'app-create-customer',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCustomerComponent implements OnInit {
 
-  constructor() { }
+  private createResponse:any;
+
+  constructor(private _service:CustomerApiService) { }
 
   ngOnInit() {
+  }
+
+  public createCustomer(customer:any){
+    this._service.create(customer).subscribe(res=>{
+        this.createResponse=res;
+    });
   }
 
 }
